@@ -681,36 +681,47 @@ web_download() {
     case $aNum in
     1)
       zipfile=https://www.free-css.com/assets/files/free-css-templates/download/page265/breezed.zip
+      wget -O ${web_dir}/web.zip --no-check-certificate 
       ;;
     2)
       zipfile=https://www.free-css.com/assets/files/free-css-templates/download/page265/shree.zip
+      wget -O ${web_dir}/web.zip --no-check-certificate 
       ;;
     3)
       zipfile=https://www.free-css.com/assets/files/free-css-templates/download/page265/scorilo.zip
+      wget -O ${web_dir}/web.zip --no-check-certificate 
       ;;
     4)
       zipfile=https://www.free-css.com/assets/files/free-css-templates/download/page264/lion.zip
+      wget -O ${web_dir}/web.zip --no-check-certificate 
       ;;
     5)
       zipfile=https://www.free-css.com/assets/files/free-css-templates/download/page265/woodo.zip
+      wget -O ${web_dir}/web.zip --no-check-certificate 
       ;;
     6)
       zipfile=https://www.free-css.com/assets/files/free-css-templates/download/page264/host-cloud.zip
+      wget -O ${web_dir}/web.zip --no-check-certificate 
       ;;
     7)
       zipfile=https://www.free-css.com/assets/files/free-css-templates/download/page264/expertum.zip
+      wget -O ${web_dir}/web.zip --no-check-certificate 
       ;;
     8)
       zipfile=https://www.free-css.com/assets/files/free-css-templates/download/page264/pullo.zip
+      wget -O ${web_dir}/web.zip --no-check-certificate 
       ;;
     9)
       zipfile=https://www.free-css.com/assets/files/free-css-templates/download/page264/daraz.zip
+      wget -O ${web_dir}/web.zip --no-check-certificate 
       ;;
     10)
       zipfile=https://www.free-css.com/assets/files/free-css-templates/download/page264/the-card.zip
+      wget -O ${web_dir}/web.zip --no-check-certificate 
       ;;
     *)
       zipfile=https://www.free-css.com/assets/files/free-css-templates/download/page262/cron.zip
+      wget -O ${web_dir}/web.zip --no-check-certificate 
       ;;
     esac
   done
