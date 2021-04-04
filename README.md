@@ -28,7 +28,7 @@
 - trojan-go一键脚本支持CDN流量中转等
 
 ```bash
-bash -c "$(curl -fsSL https://raw.githubusercontent.com/kenzok8/Trojan/master/trojan-go_install.sh)"
+bash -c "$(curl -fsSL https://raw.githubusercontent.com/chenxie95/Trojan/master/trojan-go_install.sh)"
 ```
 
 

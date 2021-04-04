@@ -677,64 +677,46 @@ web_download() {
       ${Info}8. https://templated.co/ion
       ${Info}9. https://templated.co/solarize
       ${Info}10. https://templated.co/phaseshift
-      ${Info}11. https://templated.co/horizons
-      ${Info}12. https://templated.co/grassygrass
-      ${Info}13. https://templated.co/breadth
-      ${Info}14. https://templated.co/undeviating
-      ${Info}15. https://templated.co/breadth"
     read -rp "$(echo -e "${Tip}请输入你要下载的网站的数字:")" aNum
     case $aNum in
     1)
-      wget -O ${web_dir}/web.zip --no-check-certificate https://templated.co/intensify/download
+      zipfile=https://www.free-css.com/assets/files/free-css-templates/download/page265/breezed.zip
       ;;
     2)
-      wget -O ${web_dir}/web.zip --no-check-certificate https://templated.co/binary/download
+      zipfile=https://www.free-css.com/assets/files/free-css-templates/download/page265/shree.zip
       ;;
     3)
-      wget -O ${web_dir}/web.zip --no-check-certificate https://templated.co/retrospect/download
-      ;;
+      zipfile=https://www.free-css.com/assets/files/free-css-templates/download/page265/scorilo.zip
     4)
-      wget -O ${web_dir}/web.zip --no-check-certificate https://templated.co/spatial/download
+      zipfile=https://www.free-css.com/assets/files/free-css-templates/download/page264/lion.zip
       ;;
     5)
-      wget -O ${web_dir}/web.zip --no-check-certificate https://templated.co/monochromed/download
+      zipfile=https://www.free-css.com/assets/files/free-css-templates/download/page265/woodo.zip
       ;;
     6)
-      wget -O ${web_dir}/web.zip --no-check-certificate https://templated.co/transit/download
+      zipfile=https://www.free-css.com/assets/files/free-css-templates/download/page264/host-cloud.zip
       ;;
     7)
-      wget -O ${web_dir}/web.zip --no-check-certificate https://templated.co/interphase/download
+      zipfile=https://www.free-css.com/assets/files/free-css-templates/download/page264/expertum.zip
       ;;
     8)
-      wget -O ${web_dir}/web.zip --no-check-certificate https://templated.co/ion/download
+      zipfile=https://www.free-css.com/assets/files/free-css-templates/download/page264/pullo.zip
       ;;
     9)
-      wget -O ${web_dir}/web.zip --no-check-certificate https://templated.co/solarize/download
+      zipfile=https://www.free-css.com/assets/files/free-css-templates/download/page264/daraz.zip
       ;;
     10)
-      wget -O ${web_dir}/web.zip --no-check-certificate https://templated.co/phaseshift/download
-      ;;
-    11)
-      wget -O ${web_dir}/web.zip --no-check-certificate https://templated.co/horizons/download
-      ;;
-    12)
-      wget -O ${web_dir}/web.zip --no-check-certificate https://templated.co/grassygrass/download
-      ;;
-    13)
-      wget -O ${web_dir}/web.zip --no-check-certificate https://templated.co/breadth/download
-      ;;
-    14)
-      wget -O ${web_dir}/web.zip --no-check-certificate https://templated.co/undeviating/download
-      ;;
-    15)
-      wget -O ${web_dir}/web.zip --no-check-certificate https://templated.co/lorikeet/download
+      zipfile=https://www.free-css.com/assets/files/free-css-templates/download/page264/the-card.zip
       ;;
     *)
-      wget -O ${web_dir}/web.zip --no-check-certificate https://templated.co/intensify/download
+      zipfile=https://www.free-css.com/assets/files/free-css-templates/download/page262/cron.zip
       ;;
     esac
   done
+  wget -O ${web_dir}/web.zip --no-check-certificate 
+  zipfilename=`basename $zipfile`  
   unzip -o -d ${web_dir} ${web_dir}/web.zip
+  mv ${web_dir}/${zipfilename}/* ${web_dir}/
 }
 open_websocket(){
   echo -e "${Info}是否启用websocket协议?注意：开启这个选项不会改善你的链路速度（甚至有可能下降）"
