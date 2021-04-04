@@ -726,7 +726,7 @@ web_download() {
     esac
   done
   # wget -O ${web_dir}/web.zip --no-check-certificate ${zipfile}
-  zipfilename=`basename $zipfile`  
+  zipfilename=`basename $zipfile .zip`  
   unzip -o -d ${web_dir} ${web_dir}/web.zip
   mv ${web_dir}/${zipfilename}/* ${web_dir}/
 }
@@ -955,9 +955,10 @@ trojan_caddy_install(){
   open_websocket
   trojan_go_qr_config
   install_caddy
-  install_caddy_service
+  # install_caddy_service
   caddy_trojan_conf
-  caddy -service start
+  # caddy -service start
+  systemctl start caddy
   trojan_go_info_html
   trojan_go_systemd
   systemctl start trojan.service
