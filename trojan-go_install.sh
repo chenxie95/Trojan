@@ -676,7 +676,7 @@ web_download() {
       ${Info}7. https://templated.co/interphase
       ${Info}8. https://templated.co/ion
       ${Info}9. https://templated.co/solarize
-      ${Info}10. https://templated.co/phaseshift
+      ${Info}10. https://templated.co/phaseshift"
     read -rp "$(echo -e "${Tip}请输入你要下载的网站的数字:")" aNum
     case $aNum in
     1)
@@ -687,6 +687,7 @@ web_download() {
       ;;
     3)
       zipfile=https://www.free-css.com/assets/files/free-css-templates/download/page265/scorilo.zip
+      ;;
     4)
       zipfile=https://www.free-css.com/assets/files/free-css-templates/download/page264/lion.zip
       ;;
