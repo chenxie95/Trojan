@@ -681,51 +681,51 @@ web_download() {
     case $aNum in
     1)
       zipfile=https://www.free-css.com/assets/files/free-css-templates/download/page265/breezed.zip
-      wget -O ${web_dir}/web.zip --no-check-certificate 
+      wget -O ${web_dir}/web.zip --no-check-certificate  ${zipfile}
       ;;
     2)
       zipfile=https://www.free-css.com/assets/files/free-css-templates/download/page265/shree.zip
-      wget -O ${web_dir}/web.zip --no-check-certificate 
+      wget -O ${web_dir}/web.zip --no-check-certificate  ${zipfile}
       ;;
     3)
       zipfile=https://www.free-css.com/assets/files/free-css-templates/download/page265/scorilo.zip
-      wget -O ${web_dir}/web.zip --no-check-certificate 
+      wget -O ${web_dir}/web.zip --no-check-certificate  ${zipfile}
       ;;
     4)
       zipfile=https://www.free-css.com/assets/files/free-css-templates/download/page264/lion.zip
-      wget -O ${web_dir}/web.zip --no-check-certificate 
+      wget -O ${web_dir}/web.zip --no-check-certificate  ${zipfile}
       ;;
     5)
       zipfile=https://www.free-css.com/assets/files/free-css-templates/download/page265/woodo.zip
-      wget -O ${web_dir}/web.zip --no-check-certificate 
+      wget -O ${web_dir}/web.zip --no-check-certificate  ${zipfile}
       ;;
     6)
       zipfile=https://www.free-css.com/assets/files/free-css-templates/download/page264/host-cloud.zip
-      wget -O ${web_dir}/web.zip --no-check-certificate 
+      wget -O ${web_dir}/web.zip --no-check-certificate  ${zipfile}
       ;;
     7)
       zipfile=https://www.free-css.com/assets/files/free-css-templates/download/page264/expertum.zip
-      wget -O ${web_dir}/web.zip --no-check-certificate 
+      wget -O ${web_dir}/web.zip --no-check-certificate  ${zipfile}
       ;;
     8)
       zipfile=https://www.free-css.com/assets/files/free-css-templates/download/page264/pullo.zip
-      wget -O ${web_dir}/web.zip --no-check-certificate 
+      wget -O ${web_dir}/web.zip --no-check-certificate  ${zipfile}
       ;;
     9)
       zipfile=https://www.free-css.com/assets/files/free-css-templates/download/page264/daraz.zip
-      wget -O ${web_dir}/web.zip --no-check-certificate 
+      wget -O ${web_dir}/web.zip --no-check-certificate  ${zipfile}
       ;;
     10)
       zipfile=https://www.free-css.com/assets/files/free-css-templates/download/page264/the-card.zip
-      wget -O ${web_dir}/web.zip --no-check-certificate 
+      wget -O ${web_dir}/web.zip --no-check-certificate  ${zipfile}
       ;;
     *)
       zipfile=https://www.free-css.com/assets/files/free-css-templates/download/page262/cron.zip
-      wget -O ${web_dir}/web.zip --no-check-certificate 
+      wget -O ${web_dir}/web.zip --no-check-certificate  ${zipfile}
       ;;
     esac
   done
-  wget -O ${web_dir}/web.zip --no-check-certificate 
+  # wget -O ${web_dir}/web.zip --no-check-certificate ${zipfile}
   zipfilename=`basename $zipfile`  
   unzip -o -d ${web_dir} ${web_dir}/web.zip
   mv ${web_dir}/${zipfilename}/* ${web_dir}/
@@ -794,7 +794,12 @@ install_caddy() {
     [yY][eE][sS] | [yY])
         echo -e "${Info}开始安装caddy……"
         sleep 2
-        curl https://getcaddy.com | bash -s personal hook.service
+        # curl https://getcaddy.com | bash -s personal hook.service
+        sudo apt install -y debian-keyring debian-archive-keyring apt-transport-https
+        curl -1sLf 'https://dl.cloudsmith.io/public/caddy/stable/gpg.key' | sudo apt-key add -
+        curl -1sLf 'https://dl.cloudsmith.io/public/caddy/stable/debian.deb.txt' | sudo tee -a /etc/apt/sources.list.d/caddy-stable.list
+        sudo apt update
+        sudo apt install caddy
         ;;
     *)
         ;;
@@ -802,7 +807,12 @@ install_caddy() {
   else
     echo -e "${Info}开始安装caddy……"
     sleep 2
-    curl https://getcaddy.com | bash -s personal hook.service
+    # curl https://getcaddy.com | bash -s personal hook.service
+    sudo apt install -y debian-keyring debian-archive-keyring apt-transport-https
+    curl -1sLf 'https://dl.cloudsmith.io/public/caddy/stable/gpg.key' | sudo apt-key add -
+    curl -1sLf 'https://dl.cloudsmith.io/public/caddy/stable/debian.deb.txt' | sudo tee -a /etc/apt/sources.list.d/caddy-stable.list
+    sudo apt update
+    sudo apt install caddy
   fi
 }
 install_caddy_service(){
